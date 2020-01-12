@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FragmentTransaction</string>
+
+    <string name="frag1">Fragment 1</string>
+    <string name="frag2">Fragment 2</string>
+    <string name="frag3">Fragment 3</string>
+    <string name="frag4">Fragment 4</string>
+
+    <string name="heading">This is Activity 1</string>
+</resources>
