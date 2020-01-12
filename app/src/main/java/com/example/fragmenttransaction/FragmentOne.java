@@ -5,10 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -19,11 +22,16 @@ import android.view.ViewGroup;
  * Use the {@link FragmentOne#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentOne extends Fragment {
+public class FragmentOne extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+
+    private Button frag1, frag2, frag3, frag4;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -66,7 +74,9 @@ public class FragmentOne extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_one, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment_one, container, false);
+        init(view);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -93,6 +103,36 @@ public class FragmentOne extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View v)
+    {
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+        switch (v.getId())
+        {
+            case R.id.f1_frag1:
+                fragmentTransaction.replace(R.id.frameLayout, new FragmentOne());
+                break;
+            case R.id.f1_frag2:
+                fragmentTransaction.replace(R.id.frameLayout, new FragmentTwo());
+                break;
+            case R.id.f1_frag3:
+                fragmentTransaction.replace(R.id.frameLayout, new FragmentThree());
+                break;
+            case R.id.f1_frag4:
+                fragmentTransaction.replace(R.id.frameLayout, new FragmentFour());
+                break;
+
+        }
+
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(String.valueOf(fragmentManager.getBackStackEntryCount()))
+                .commit();
+
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -106,5 +146,18 @@ public class FragmentOne extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    private void init(View view)
+    {
+        frag1 = view.findViewById(R.id.f1_frag1);
+        frag2 = view.findViewById(R.id.f1_frag2);
+        frag3 = view.findViewById(R.id.f1_frag3);
+        frag4 = view.findViewById(R.id.f1_frag4);
+
+        frag1.setOnClickListener(this);
+        frag2.setOnClickListener(this);
+        frag3.setOnClickListener(this);
+        frag4.setOnClickListener(this);
     }
 }

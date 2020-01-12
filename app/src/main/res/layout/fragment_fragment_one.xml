@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <GridLayout
-            android:id="@+id/gridView"
+            android:id="@+id/f1_gridView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <Button
-                android:id="@+id/frag1"
+                android:id="@+id/f1_frag1"
                 android:padding="20dp"
                 android:layout_margin="10dp"
                 android:text="@string/frag1"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"/>
 
             <Button
-                android:id="@+id/frag2"
+                android:id="@+id/f1_frag2"
                 android:padding="20dp"
                 android:layout_margin="10dp"
                 android:text="@string/frag2"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"/>
 
             <Button
-                android:id="@+id/frag3"
+                android:id="@+id/f1_frag3"
                 android:padding="20dp"
                 android:layout_margin="10dp"
                 android:text="@string/frag3"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"/>
 
             <Button
-                android:id="@+id/frag4"
+                android:id="@+id/f1_frag4"
                 android:padding="20dp"
                 android:layout_margin="10dp"
                 android:text="@string/frag4"
@@ -66,15 +66,15 @@
         </GridLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/f1_textView"
             android:textSize="20sp"
-            android:text="@string/heading4"
+            android:text="@string/heading1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gridView"/>
+            app:layout_constraintTop_toBottomOf="@id/f1_gridView"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
